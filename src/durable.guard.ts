@@ -12,9 +12,6 @@ export class DurableGuard implements CanActivate {
   constructor(private readonly durableService: DurableService) {}
 
   public async canActivate(context: ExecutionContext): Promise<boolean> {
-    if (typeof this.durableService === 'undefined') {
-      throw new Error('Durable service is undefined');
-    }
     this.instanceCounter++;
     return true;
   }
